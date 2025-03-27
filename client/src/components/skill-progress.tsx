@@ -9,13 +9,15 @@ interface SkillProgressProps {
 export function SkillProgress({ name, percentage, delay = 0 }: SkillProgressProps) {
   return (
     <div className="mb-6">
-      <div className="flex justify-between mb-1">
-        <span className="font-medium text-foreground">{name}</span>
-        <span className="text-sm text-muted-foreground">{percentage}%</span>
+      <div className="flex justify-between mb-2">
+        <span className="font-medium text-white">{name}</span>
+        <span className="text-sm text-primary font-medium bg-primary/10 px-2 py-0.5 rounded-full">
+          {percentage}%
+        </span>
       </div>
-      <div className="w-full bg-gray-200 rounded-full h-2.5">
+      <div className="w-full bg-gray-800 rounded-full h-2 overflow-hidden">
         <motion.div 
-          className="bg-primary h-2.5 rounded-full"
+          className="bg-gradient-to-r from-primary to-primary/80 h-2 rounded-full"
           initial={{ width: 0 }}
           whileInView={{ width: `${percentage}%` }}
           viewport={{ once: true }}

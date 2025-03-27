@@ -6,7 +6,7 @@ import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import { insertWaitlistSchema } from "@shared/schema";
 import { motion } from "framer-motion";
-import { FaRobot } from "react-icons/fa";
+import { FaRobot, FaBrain, FaLightbulb, FaMicrochip } from "react-icons/fa";
 
 import {
   Form,
@@ -89,34 +89,60 @@ export function WaitlistSection() {
   }
 
   return (
-    <section id="waitlist" className="py-20 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10">
-      <div className="container mx-auto px-6">
+    <section id="waitlist" className="py-24 bg-black relative overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute inset-0 opacity-20 pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-primary/20 blur-3xl"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-80 h-80 rounded-full bg-primary/20 blur-3xl"></div>
+      </div>
+      
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <span className="inline-block px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-4">
+              Coming Soon
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold font-sans mb-4 text-white">
+              Join the <span className="text-gradient">Waitlist</span>
+            </h2>
+            <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
+            <p className="text-gray-300 max-w-2xl mx-auto">
+              Be the first to experience my upcoming AI product. Sign up now to get early access and exclusive updates.
+            </p>
+          </motion.div>
+        </div>
+        
         <motion.div 
-          className="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden"
+          className="max-w-5xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <div className="flex flex-col md:flex-row">
-            <div className="md:w-1/2 p-8 md:p-10">
-              <h2 className="text-3xl font-bold font-sans text-foreground mb-4">Join the Waitlist</h2>
-              <p className="text-muted-foreground mb-8">
-                Be the first to experience my upcoming AI product. Sign up now to get early access and exclusive updates.
-              </p>
-              
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-stretch">
+            {/* Form Section */}
+            <div className="lg:col-span-3 bg-gray-900/50 backdrop-blur-sm p-8 md:p-10 rounded-2xl border border-primary/10 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
               <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
                   <FormField
                     control={form.control}
                     name="name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Full Name</FormLabel>
+                        <FormLabel className="text-white text-sm">Full Name</FormLabel>
                         <FormControl>
-                          <Input placeholder="Enter your name" {...field} />
+                          <Input 
+                            placeholder="Enter your name" 
+                            {...field} 
+                            className="bg-black/40 border-gray-800 focus:border-primary text-white placeholder:text-gray-500"
+                          />
                         </FormControl>
-                        <FormMessage />
+                        <FormMessage className="text-red-400" />
                       </FormItem>
                     )}
                   />
@@ -126,11 +152,15 @@ export function WaitlistSection() {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Email Address</FormLabel>
+                        <FormLabel className="text-white text-sm">Email Address</FormLabel>
                         <FormControl>
-                          <Input placeholder="Enter your email" {...field} />
+                          <Input 
+                            placeholder="Enter your email" 
+                            {...field} 
+                            className="bg-black/40 border-gray-800 focus:border-primary text-white placeholder:text-gray-500"
+                          />
                         </FormControl>
-                        <FormMessage />
+                        <FormMessage className="text-red-400" />
                       </FormItem>
                     )}
                   />
@@ -140,17 +170,17 @@ export function WaitlistSection() {
                     name="interest"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>What interests you most?</FormLabel>
+                        <FormLabel className="text-white text-sm">What interests you most?</FormLabel>
                         <Select 
                           onValueChange={field.onChange} 
                           defaultValue={field.value}
                         >
                           <FormControl>
-                            <SelectTrigger>
+                            <SelectTrigger className="bg-black/40 border-gray-800 focus:border-primary text-white">
                               <SelectValue placeholder="Select your interest" />
                             </SelectTrigger>
                           </FormControl>
-                          <SelectContent>
+                          <SelectContent className="bg-gray-900 border-gray-800 text-white">
                             {interestOptions.map((option) => (
                               <SelectItem key={option.value} value={option.value}>
                                 {option.label}
@@ -158,7 +188,7 @@ export function WaitlistSection() {
                             ))}
                           </SelectContent>
                         </Select>
-                        <FormMessage />
+                        <FormMessage className="text-red-400" />
                       </FormItem>
                     )}
                   />
@@ -172,11 +202,12 @@ export function WaitlistSection() {
                           <Checkbox
                             checked={field.value}
                             onCheckedChange={field.onChange}
+                            className="border-gray-600 data-[state=checked]:bg-primary data-[state=checked]:border-primary"
                           />
                         </FormControl>
                         <div className="space-y-1 leading-none">
-                          <FormLabel>
-                            Subscribe to newsletter for updates
+                          <FormLabel className="text-gray-300 font-normal text-sm">
+                            Subscribe to newsletter for AI updates and early access
                           </FormLabel>
                         </div>
                       </FormItem>
@@ -185,7 +216,7 @@ export function WaitlistSection() {
                   
                   <Button 
                     type="submit" 
-                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+                    className="w-full bg-primary hover:bg-primary/90 text-black font-semibold py-6 mt-2 button-hover"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? "Processing..." : "Join Waitlist"}
@@ -194,56 +225,81 @@ export function WaitlistSection() {
               </Form>
             </div>
             
-            <div className="md:w-1/2 bg-gradient-to-br from-primary to-accent flex items-center justify-center relative overflow-hidden">
-              <div className="absolute inset-0 opacity-20">
-                <div className="absolute top-10 left-10 w-40 h-40 rounded-full bg-white"></div>
-                <div className="absolute bottom-10 right-10 w-60 h-60 rounded-full bg-white"></div>
-              </div>
-              <div className="relative z-10 text-center p-8 md:p-10">
-                <div className="text-white mb-6">
-                  <FaRobot className="mx-auto text-6xl" />
+            {/* Info Section */}
+            <div className="lg:col-span-2 bg-black border border-primary/20 rounded-2xl overflow-hidden shadow-[0_8px_30px_rgba(243,202,32,0.1)]">
+              <div className="h-full flex flex-col">
+                <div className="bg-primary/10 p-8 flex-grow">
+                  <div className="text-center mb-6">
+                    <div className="mx-auto w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mb-4">
+                      <FaRobot className="text-primary text-2xl" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-white mb-2">AI Product Launch</h3>
+                    <p className="text-gray-400 text-sm">
+                      Coming soon - an innovative AI solution powered by cutting-edge technology
+                    </p>
+                  </div>
+                  
+                  <div className="space-y-5">
+                    <FeatureItem 
+                      icon={<FaBrain />}
+                      title="Advanced ML Models"
+                      description="State-of-the-art machine learning models trained on vast datasets"
+                    />
+                    
+                    <FeatureItem 
+                      icon={<FaLightbulb />}
+                      title="Intelligent Solutions"
+                      description="Smart tools that adapt to your specific needs and workflows"
+                    />
+                    
+                    <FeatureItem 
+                      icon={<FaMicrochip />}
+                      title="High Performance"
+                      description="Optimized for speed and efficiency with low resource requirements"
+                    />
+                  </div>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Coming Soon</h3>
-                <p className="text-white/80 mb-6">
-                  An innovative AI solution that leverages cutting-edge machine learning technology to solve real-world problems.
-                </p>
-                <div className="flex items-center justify-center space-x-3">
-                  <motion.span 
-                    animate={{ 
-                      scale: [1, 1.2, 1],
-                      opacity: [0.7, 1, 0.7]
-                    }}
-                    transition={{ 
-                      repeat: Infinity,
-                      duration: 1.5,
-                      delay: 0
-                    }}
-                    className="w-3 h-3 bg-white rounded-full"
-                  />
-                  <motion.span 
-                    animate={{ 
-                      scale: [1, 1.2, 1],
-                      opacity: [0.7, 1, 0.7]
-                    }}
-                    transition={{ 
-                      repeat: Infinity,
-                      duration: 1.5,
-                      delay: 0.2
-                    }}
-                    className="w-3 h-3 bg-white rounded-full"
-                  />
-                  <motion.span 
-                    animate={{ 
-                      scale: [1, 1.2, 1],
-                      opacity: [0.7, 1, 0.7]
-                    }}
-                    transition={{ 
-                      repeat: Infinity,
-                      duration: 1.5,
-                      delay: 0.4
-                    }}
-                    className="w-3 h-3 bg-white rounded-full"
-                  />
+                
+                <div className="bg-primary/5 p-5 border-t border-primary/10">
+                  <div className="flex items-center justify-center space-x-3">
+                    <motion.span 
+                      animate={{ 
+                        scale: [1, 1.2, 1],
+                        opacity: [0.7, 1, 0.7]
+                      }}
+                      transition={{ 
+                        repeat: Infinity,
+                        duration: 1.5,
+                        delay: 0
+                      }}
+                      className="w-2.5 h-2.5 bg-primary rounded-full"
+                    />
+                    <motion.span 
+                      animate={{ 
+                        scale: [1, 1.2, 1],
+                        opacity: [0.7, 1, 0.7]
+                      }}
+                      transition={{ 
+                        repeat: Infinity,
+                        duration: 1.5,
+                        delay: 0.2
+                      }}
+                      className="w-2.5 h-2.5 bg-primary rounded-full"
+                    />
+                    <motion.span 
+                      animate={{ 
+                        scale: [1, 1.2, 1],
+                        opacity: [0.7, 1, 0.7]
+                      }}
+                      transition={{ 
+                        repeat: Infinity,
+                        duration: 1.5,
+                        delay: 0.4
+                      }}
+                      className="w-2.5 h-2.5 bg-primary rounded-full"
+                    />
+                    <p className="text-primary text-sm font-medium ml-2">Launch in progress...</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -251,5 +307,25 @@ export function WaitlistSection() {
         </motion.div>
       </div>
     </section>
+  );
+}
+
+interface FeatureItemProps {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+}
+
+function FeatureItem({ icon, title, description }: FeatureItemProps) {
+  return (
+    <div className="flex items-start space-x-4">
+      <div className="bg-black/30 p-2.5 rounded-lg text-primary flex-shrink-0">
+        {icon}
+      </div>
+      <div>
+        <h4 className="text-white font-medium mb-1">{title}</h4>
+        <p className="text-gray-400 text-sm">{description}</p>
+      </div>
+    </div>
   );
 }
