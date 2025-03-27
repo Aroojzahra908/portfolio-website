@@ -74,5 +74,41 @@ export const projectData: Project[] = [
       github: "#",
       paper: "#"
     }
+  },
+  {
+    id: "sentiment-analysis",
+    title: "Social Media Sentiment Analysis",
+    shortDescription: "Real-time sentiment analysis of social media posts using NLP and transformer models.",
+    description: "A sentiment analysis tool that processes social media posts in real-time to determine public opinion on specific topics. The system categorizes sentiment as positive, negative, or neutral and visualizes trends over time.",
+    image: "https://images.unsplash.com/photo-1568952433726-3896e3881c65?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
+    technologies: ["Python", "BERT", "PyTorch", "Twitter API", "Dash", "Pandas", "NLP"],
+    challenges: "Handling the volume and velocity of social media data while maintaining accurate sentiment classification presented significant technical challenges. Adapting to the informal language, slang, and context-specific meanings required sophisticated NLP approaches.",
+    solution: "The project uses a fine-tuned BERT model for sentiment classification combined with a custom data pipeline for preprocessing and filtering. A Dash-based dashboard provides real-time visualization of sentiment trends.",
+    outcome: "The system successfully analyzes thousands of social media posts per minute with over 85% accuracy in sentiment classification, providing valuable insights for brand monitoring and public opinion analysis.",
+    tag: "ML Project",
+    tagColor: "bg-blue-500/10 text-blue-500",
+    links: {
+      demo: "#",
+      github: "https://github.com/Aroojzahra908",
+      blog: "#"
+    }
+  },
+  {
+    id: "plant-disease",
+    title: "Plant Disease Detection",
+    shortDescription: "Mobile app for detecting plant diseases from leaf images using transfer learning and CNNs.",
+    description: "A mobile application that allows farmers to diagnose plant diseases by simply taking a photo of affected leaves. The app uses computer vision to identify various crop diseases and provides treatment recommendations.",
+    image: "https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
+    technologies: ["Python", "TensorFlow", "Transfer Learning", "MobileNetV2", "Flutter", "FastAPI"],
+    challenges: "Creating a model that works accurately across different lighting conditions, backgrounds, and image qualities while keeping it lightweight enough for mobile deployment was the primary challenge.",
+    solution: "The project uses transfer learning with MobileNetV2 as the base model, fine-tuned on a dataset of 87,000 images covering 38 different plant diseases. The model is deployed through FastAPI and integrated with a Flutter mobile app.",
+    outcome: "The application achieves 93% accuracy in disease detection under various field conditions, helping farmers identify problems early and reduce crop losses through timely interventions.",
+    tag: "Computer Vision",
+    tagColor: "bg-green-500/10 text-green-500",
+    links: {
+      demo: "#",
+      github: "https://github.com/Aroojzahra908",
+      model: "https://huggingface.co/"
+    }
   }
 ];
