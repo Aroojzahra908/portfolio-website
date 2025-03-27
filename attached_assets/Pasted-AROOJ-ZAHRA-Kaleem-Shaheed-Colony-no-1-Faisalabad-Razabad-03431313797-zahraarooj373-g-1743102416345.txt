@@ -1,0 +1,71 @@
+AROOJ ZAHRA
+ Kaleem Shaheed Colony no 1, Faisalabad, Razabad
+ • 03431313797      • zahraarooj373@gmail.com
+ SUMMARY
+ A motivated AI/ML Engineer with 1 year of experience building and deploying machine learning
+ models and AI solutions. Skilled in Python, TensorFlow, PyTorch, and data processing tools like
+ Pandas and NumPy. Experienced in Generative AI and Large Language Models (LLMs). Passionate
+ about solving real-world problems using AI/ML and collaborating with teams to deliver impactful
+ solutions. Ready to contribute to innovative projects and drive technological advancements.
+ WORK EXPERIENCE
+ AI and ML Intern (Ongoing)
+ Pak-China Joint Lab for AI and Smart Agriculture (CAS Department)
+ University of Agriculture Faisalabad
+ June 2024 - Present
+ Developed AI/ML models, including training, fine-tuning, and deployment.
+ Built deep learning models for cloud removal in satellite images using CUDA  and cuDNN 
+on local GPUs.
+ Worked with Large Language Models (LLMs) on server machines for AI applications.
+ Python Development Intern
+ CodeSoft (Remote) – 1 Month
+ Developed Python-based projects such as a calculator, to-do app, and password
+ generator.
+ Enhanced Python programming skills and gained hands-on experience in software
+ development.
+ EDUCATION
+ Bachelor of Science in Information Technology (BSIT)
+ University of Agriculture, Faisalabad
+ Certified Cloud Applied Generative AI Engineer  (Ongoing)
+ PIAIC, NTU Faisalabad
+ Sep 2021 - May 2025
+ Aug 2024 - ongoing 
+PROJECTS
+ Final Year Project: Intelligent Chatbot for Farmers (Kisan360 App)
+ Developed an AI-powered chatbot using Meta LLaMA 3.2 3B, fine-tuned on a custom wheat
+ dataset.
+ Deployed on a server machine using Docker and Open WebUI for seamless interaction.
+ Utilized a pre-trained model from Hugging Face Transformers, running on a local
+ environment.
+ See the chatbot in action: 
+Kisan360 on Google Play
+ Hugging face fine-tuned model here
+AI-Powered Chatbot Application
+ Built a multilingual text-to-speech (TTS) chatbot with file upload (PDFs, images, text)
+ and text extraction using Tesseract.js.
+ Integrated Flask backend APIs for Urdu and English TTS, enabling audio playback and
+ removal. 
+GitHub
+ Cloud Removal from Satellite Images Using GANs
+ Using the Generative Adversarial Network (GAN) model to remove clouds from satellite
+ images.
+ Trained the model using paired datasets of cloud-covered and cloud-free images.
+ Achieved improved image clarity for agricultural and environmental analysis.
+ Skills
+ Technical Skills: Python, TensorFlow, PyTorch, Pandas, NumPy, Git, Google Cloud
+ Soft Skills: Communication, Problem-Solving, Team Collaboration, Time Management, Leadership
+ Debugging, Documentation.
+ Additional skills:
+ Frontend: HTML, CSS, JavaScript, React Native, React.js, Next.js, Tailwind CSS, Bootstrap
+ Backend: Python (FastAPI)
+ Mobile App Development: React Native for AI-powered mobile applications
+ Languages
+ English, Urdu 
+Professional Profiles
+ GitHub:
+ github.com/Aroojzahra908
+ LinkedIn:
+ linkedin.com/in/arooj-zahra-b546b4239
+ LeetCode: 
+leetcode.com/Arooj_zahra
+ Thanks for considering my application. I'm excited about the possibility of working together and
+ contributing to your team.
